@@ -116,6 +116,12 @@ export default function HomeScreen() {
     setRange({ min: 0, max: 0 });
   };
 
+  const onReset = () => {
+    setRange({ min: 0, max: 0 });
+    setCategoryId("");
+    setIsOpenRange(false);
+  };
+
   return (
     <SafeAreaView style={{ flex: 1, padding: 16 }}>
       {products.length > 0 && (
@@ -181,6 +187,9 @@ export default function HomeScreen() {
                   </>
                 )}
               </View>
+              <TouchableOpacity style={styles.buttonReset} onPress={onReset}>
+                Reset
+              </TouchableOpacity>
             </View>
           }
           renderItem={({ item, index }) => (
@@ -257,5 +266,14 @@ const styles = StyleSheet.create({
     color: "#04a4a4",
     textAlign: "center",
     padding: 10,
+  },
+  buttonReset: {
+    backgroundColor: "black",
+    borderRadius: 4,
+    width: 100,
+    color: "white",
+    padding: 8,
+    textAlign: "center",
+    marginTop: 16,
   },
 });
